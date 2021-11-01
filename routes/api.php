@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Api\RomanNumeralConversionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('/roman-numeral-conversions')
+    ->group(function () {
+    Route::post('/convert', [RomanNumeralConversionController::class, 'convert']);
+    Route::get('/recent', [RomanNumeralConversionController::class, 'recent']);
+    Route::get('/most-frequent', [RomanNumeralConversionController::class, 'mostFrequent']);
 });
