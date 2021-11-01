@@ -7,7 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class RomanNumeralTest extends TestCase
 {
-    private RomanNumeralConverter $converter;
 
     protected function setUp(): void
     {
@@ -39,9 +38,10 @@ class RomanNumeralTest extends TestCase
             $this->assertEquals($returnValue, $this->converter->convertInteger($integer));
         }
 
-        // Test more unique integers
+//        // Test more unique integers
         $this->assertEquals('MMMCMXCIX', $this->converter->convertInteger(3999));
         $this->assertEquals('MMXVI', $this->converter->convertInteger(2016));
         $this->assertEquals('MMXVIII', $this->converter->convertInteger(2018));
     }
+
 }
